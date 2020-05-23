@@ -1,0 +1,9 @@
+<?php   
+    $servername = "classdb.it.mtu.edu";
+    $username = "bmwichma";
+    $password = "curling1";
+    $dbName = "bmwichma";
+    // Create connection
+     $conn = new mysqli($servername, $username, $password, $dbName);
+   
+?>

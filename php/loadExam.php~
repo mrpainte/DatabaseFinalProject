@@ -1,0 +1,21 @@
+<?php
+	session_start();
+	
+	$msg= "<form method='POST'>";
+	require_once('connect.php');
+	if(!$conn){
+		die();
+	}
+	$q = "call exams;";
+	$result = mysqli_query($conn,$q);
+	$test = "";
+	while($data = mysqli_fetch_assoc($result)){
+	    $text = "<input type='radio'id='r1' name=".$data['eID']."' value='".$data['eID']."'>".$data['name']."<br>";
+    	    $msg = $msg.$text;
+	    $text="";
+	}
+$msg = $msg."</form>";
+echo $msg;
+
+$conn->close();
+?>

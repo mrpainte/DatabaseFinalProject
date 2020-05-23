@@ -1,0 +1,27 @@
+<?php
+session_start();
+	require_once('connect.php');
+	if (!$conn){
+	   die();
+	 }
+	 $user = $_POST['username'];
+	 echo $user;
+	 $temp = $user;
+	 $pwd = $_POST['password'];
+	    
+	 $pwd = MD5($pwd); // hash the password
+	 $q1 = "select id from account where password='".$pwd."' and id = '". $user."';";
+	 $q2 = "select logi('".$user."','".$pwd."');";
+	 $result = mysqli_query($conn,$q2);
+	 if($result){
+		echo $_POST['username'];
+	 	$_SESSION["username"] = $user;
+	    	echo $temp."session id has been created";
+		print_r($_SESSION);     
+ 	   }
+	    else {
+	    	  echo "not properly set";
+		  }
+		  echo $_SESSION["username"];
+$conn->close();
+?>

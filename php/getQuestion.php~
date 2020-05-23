@@ -1,0 +1,21 @@
+<?php
+session_start();
+	require_once('connect.php');
+	if(!$conn){
+		die();
+	}
+	if(!isset($_SESSION["question"])){
+		$_SESSION["question"] = 1;
+	}
+//	$exam = $_POST["value"];
+//	$question = $_SESSION["question"];
+	$exam = '200';
+	$question = '1';
+	$q = "call display('".$exam."','".$question."')";
+	$result = mysqli_query($conn,$q);
+	echo 1;
+
+$conn->close();
+	
+
+?>

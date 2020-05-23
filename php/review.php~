@@ -1,0 +1,20 @@
+<?php
+	session_start();
+	require_once('connect.php');
+	if(!$conn){
+		die();
+	}
+	$msg="<form><tr><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Points Possible</th><th>Points awarded</th></tr>"
+	$user = $_SESSION["username"];
+	$eID = $_SESSION["eID"];
+	$q = 'call rview(".$eID.",'".$user."');";
+	$result = mysqli_query($conn,$q);
+	while ($data=mysqli_fetch_assoc($result)){
+	$text = "<tr><th>".$data['Question']."</th><th>".$data['Your_Answer']."</th><th>".$data['Answer']."</th><th>".$data['value']."</th><th>".$data['total']".</th></tr>";
+	$msg=$msg.$text;
+	}
+	$msg=$msg."</form>";
+	echo $msg;
+
+$conn->close();
+?>

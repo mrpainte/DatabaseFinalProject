@@ -1,0 +1,25 @@
+<?php
+	require_once('connect.php');
+	if(!$conn){
+		die();
+	}
+	
+	$user= $_POST['user'];
+	$pwd= MD5($_POST['pass']);
+	$name = $_POST['fullname'];
+	$major = $_POST['Newmajor'];
+	$q= "enroll('".$name."','".$user."','".$pwd."','".$major."');";
+	$q= "enroll('".$name."','".$user."','".$pwd."','".$major."');";
+	echo $q;
+	$result = mysqli_query($conn,$q);
+	
+	if($result){
+		echo $result;
+	}
+	else {
+	 echo $q; 
+	 }
+
+	 $conn->close();
+
+?>

@@ -1,0 +1,42 @@
+<?php
+	session_start();
+	$question = $_SESSION["question"];
+function submits(){
+    console.log("test");
+    var value="";
+    if (document.getElementById('r1').checked){
+        value = document.getElementById('r1').value;
+    }
+    else if (document.getElementById('r2').checked){
+        value = document.getElementById('r2').value;
+    }
+    else if (document.getElementById('r3').checked){
+        value = document.getElementById('r4').value;
+    }
+    else if (document.getElementById('r4').checked){
+        value = document.getElementById('r4').value;
+    }
+    else if(document.getElementById('r5').checked){
+        value = document.getElementById('r5').value;
+    }
+    else if (document.getElementById('r6').checked){
+        value = document.getElementById('r6').value;
+    }
+    else if (document.getElementById('r7').checked){
+        value = document.getElementById('r7').value;
+    }
+    else if (document.getElementById('r8').checked){
+        value = document.getElementById('r8').value;
+    }
+   console.log(value);
+    $.ajax({
+        type: 'POST',
+        url: '../php/submitAnswer.php',
+        data: {choice: value},
+        success: function(msg){
+            loadQuestions();
+        }
+    });
+}
+	$eID = $_SESSION["eID"];
+	
