@@ -1,0 +1,16 @@
+
+<html>
+<head>
+  <title>Test</title>
+</head>
+<body>
+Question <b id="number"></b>
+
+<p id="question"></p>
+<script src="../js/getQuestion.js"></script>
+
+<input type="submit" onclick="getQuestion();return false;">
+</body>
+<footer>
+</footer>
+</html>

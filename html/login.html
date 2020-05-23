@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<title>
+  LOG IN
+</title>
+<body>
+
+<form method="post" >
+  <table cellpadding="2" cellspacing="5" border="1">
+    <tr>
+      <td>Username</td>
+      <td><input type="text" id="user" name="user"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="text" id="pass" name="pass"></td>
+    </tr>
+    <tr>
+      <td>Major</td>
+      <td><input type="text" id="major" name="major"></td>
+    </tr>
+    <tr>
+      <td>Full Name</td>
+      <td><input type="text" id="name" name="name"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" onclick="auth();return false;" name="btnLogIn" value="Log In">
+      <input type="submit" onclick="enroll();return false;" name="btnEnroll" value="Enroll">
+      <input type="submit" onclick="logout()" name="btnLogOut" value="LogOut"</td>
+  </table>
+</form>
+<p id="goodToGo">LOGIN</p>
+<p id="enroll">ENROLL</p>
+<p id="logout">LOGOUT</p>
+<script src="../js/logout.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/enroll.js"></script>
+</body>
+</html>
+

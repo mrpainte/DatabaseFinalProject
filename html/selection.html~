@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>
+</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body onload="loadExams()">
+<input type="submit" onclick="logout()" name="btnLogOut" value="LogOut">
+
+<form>
+<p id="output">Exams to be taken are listed Below:</p>
+<p id="exams"></p>
+
+</form>
+<br><br><br>
+<input type="submit" onclick="select()" name="btnSelect" value="select Exam">
+</body>
+<script src="../js/loadExams.js"></script> 
+<script src="../js/logout.js"></script>
+<script src="../js/select.js"></script>
+
+function select(){
+    console.log("HELLLOOO I AM HERE!");
+    var value = "";
+    if (document.getElementById('r1').checked){
+        value = document.getElementById('r1').value;
+    }
+    console.log(value);
+       $.ajax({
+            type: 'POST',
+            url: '../php/getQuestion.php',
+            data: {value: value},
+            success: function(msg){
+              window.location.replace("https://classdb.it.mtu.edu/~mrpainte/final/html/question.html");
+                changeState(msg);
+                console.log(msg);
+            }// end of successs
+       });
+    function changeState(x){
+        if (x==1){
+            window.location.replace("https://classdb.it.mtu.edu/~mrpainte/final/html/question.html");
+        }
+    }
+}
+</script>
+<footer>
+</footer>
+</html>

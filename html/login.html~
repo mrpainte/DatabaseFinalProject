@@ -1,0 +1,19 @@
+<?php
+// Start the session
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<title>
+  LOG IN
+</title>
+<body>
+<form method="post">
+hello there!<br>
+<input type="text" id="username" placeholder="USERNAME">
+<input type="text" id="password" placeholder="PASSWORD">
+<input type="submit" onclick="auth();return false;" value="Log In">
+</form>
+<script src="../sql/auth.js"></script>
+</body>
+</html>

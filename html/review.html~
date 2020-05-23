@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>
+</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+ <body onload="loadResults()">
+<p>Answers</p>
+<p id="table"></p>
+
+   </body>
+
+  <script>
+function loadResults(){
+     $.ajax({
+        type: 'POST',
+        url: '../php/review.php',
+        dataType: 'html',
+        success: function(msg){
+            document.getElementById('table').innerHTML= msg;
+            }
+        });
+}
+</script>
+  <footer>
+   </footer>
+  </html>

@@ -1,0 +1,35 @@
+
+
+<html>
+<head>
+<title>
+</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body onload="loadQuestions()">
+<p>Question:</p>
+<p id="question"></p>
+<input type="submit" onclick="submits()" name="submit1" value="submit">
+</body>
+<script src="../js/submits.js">
+</script>
+<script>
+function review(){
+    window.location.replace("https://classdb.it.mtu.edu/~mrpainte/final/html/review.html");
+}
+</script>
+<script>
+  function loadQuestions(){
+     $.ajax({
+        type: 'POST',
+        url: '../php/loadQuestion.php',
+        dataType: 'html',
+        success: function(msg){
+            document.getElementById('question').innerHTML= msg;
+            }
+        });
+}
+</script>
+<footer>
+</footer>
+</html
